@@ -25,10 +25,10 @@ Ideas:
 
 To dos:
 Phase 1:
-[] Design general game mechanism (how is the board implemented? What data struture?)
-[] Board implementation
-[] Game piece implementation
-[] Upper-level function that runs the game loop
-[] Function for prompting user to choose board location for game piece (that doesn't conflict with existing inputs)
-[] Function that generates a cpu location for game piece (that doesn't conflict with existing inputs)
-[] Function that prints board
+- [ ] Design general game mechanism (how is the board implemented? What data struture?)
+- [ ] Board implementation
+- [ ] Game piece implementation
+- [ ] Upper-level function that runs the game loop
+- [ ] Function for prompting user to choose board location for game piece (that doesn't conflict with existing inputs)
+- [ ] Function that generates a cpu location for game piece (that doesn't conflict with existing inputs)
+- [ ] Function that prints board
