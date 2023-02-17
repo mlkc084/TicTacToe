@@ -27,6 +27,16 @@ def print_board(game_board):
         print()
 
 
+# check_location_available
+# Determine if the specified location is available or occupied
+# Caller is responsible for making sure row and column on in-bounds to game_board
+def check_location_available(row, column, game_board):
+    if game_board[row][column] == 'E':
+        return True
+    else:
+        return False
+
+
 # position_in_bounds
 # Check that position specified was in bounds
 def position_in_bounds(x, y):
@@ -39,14 +49,17 @@ def position_in_bounds(x, y):
 # get_user_position:
 # Ask the user for the row and column for which to place their piece.
 # Return the row and column specified
-def get_user_position():
-    out_of_bounds = True
-    while out_of_bounds:
+def get_user_position(game_board):
+    invalid_entry = True
+    while invalid_entry:
         choose_row = int(input("Choose Row: "))
         choose_column = int(input("Choose Column: "))
 
         if position_in_bounds(choose_row, choose_column):
-            out_of_bounds = False
+            if check_location_available(choose_row, choose_column, game_board):
+                invalid_entry = False
+            else:
+                print("Position not available")
         else:
             print("Position specified is out of bounds")
 
@@ -55,9 +68,16 @@ def get_user_position():
 
 # get_cpu_position
 # Get a board position from the cpu
-def get_cpu_position():
-    row = randint(0, 2)
-    column = randint(0, 2)
+def get_cpu_position(game_board):
+    invalid_entry = True
+
+    while invalid_entry:
+        row = randint(0, 2)
+        column = randint(0, 2)
+
+        if check_location_available(row, column, game_board):
+            invalid_entry = False
+
     return row, column
 
 
